@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import App from 'components/logic/App/App';
+import App from 'components/App/App';
 
 import reportWebVitals from './reportWebVitals';
+import { ResetStyles } from './styles';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
+    <ResetStyles />
     <BrowserRouter>
       <App />
     </BrowserRouter>
