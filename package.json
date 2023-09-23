@@ -20,6 +20,16 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@storybook/addon-essentials": "^7.4.4",
+    "@storybook/addon-interactions": "^7.4.4",
+    "@storybook/addon-links": "^7.4.4",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.4",
+    "@storybook/preset-create-react-app": "^7.4.2",
+    "@storybook/react": "^7.4.4",
+    "@storybook/react-webpack5": "^7.4.4",
+    "@storybook/testing-library": "^0.2.1",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
@@ -30,9 +40,13 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.14",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.4.4",
+    "webpack": "^5.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,7 +56,9 @@
     "lint": "eslint --fix ",
     "prepare": "husky install",
     "precommit": "lint-staged",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "browserslist": {
     "production": [
@@ -63,14 +79,19 @@
     }
   },
   "lint-staged": {
-    "**/*.+(js,jsx,ts,tsx,json)": [
+    "src/**/*.+(js,jsx,ts,tsx,json)": [
       "prettier --write && git add -A"
     ],
-    "./**/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "eslint --max-warnings=0 --fix \"**/*.+(ts|tsx)\""
     ]
   },
   "resolutions": {
     "styled-components": "^6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
