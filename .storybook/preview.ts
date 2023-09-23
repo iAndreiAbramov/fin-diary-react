@@ -1,5 +1,9 @@
 import type { Preview } from '@storybook/react';
 
+import { ThemeProvider } from 'styled-components';
+import { withThemeFromJSXProvider } from '@storybook/addon-styling';
+import { darkTheme, GlobalStyles } from '../src/styles';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -10,6 +14,18 @@ const preview: Preview = {
       },
     },
   },
+
+  decorators: [
+    // Adds global styles and theme switching support.
+    withThemeFromJSXProvider({
+      themes: {
+        dark: darkTheme,
+      },
+      defaultTheme: 'dark',
+      Provider: ThemeProvider,
+      GlobalStyles,
+    }),
+  ],
 };
 
 export default preview;
