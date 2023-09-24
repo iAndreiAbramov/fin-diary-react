@@ -25,7 +25,8 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:eslint-comments/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
