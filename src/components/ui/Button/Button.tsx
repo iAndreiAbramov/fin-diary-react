@@ -1,18 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
+
+import { IButtonProps } from './Button.types';
 
 import * as S from './Button.styled';
-
-interface IButtonProps {
-  type: 'primary' | 'alter' | 'outlined' | 'borderless' | 'surroundedIcon';
-  text?: string;
-  title?: string;
-  icon?: ReactElement;
-  isReversed?: boolean;
-  isDisabled?: boolean;
-  onClick: (value?: string) => void;
-  className?: string;
-  testId?: string;
-}
 
 const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (
@@ -112,7 +102,7 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
             {icon && icon}
           </S.SurroundedIcon>
         );
-      default:
+      case 'primary':
         return (
           <S.PrimaryButton
             ref={ref}

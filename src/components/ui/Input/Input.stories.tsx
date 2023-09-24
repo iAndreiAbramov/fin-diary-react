@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { FontColor } from 'styles';
 
 import Input from './Input';
 import { IInputProps } from './Input.types';
@@ -18,12 +17,10 @@ const Template: React.FC<Omit<IInputProps, 'onChange' | 'value'>> = (args) => {
     <>
       <div style={{ width: '350px' }}>
         <Input {...args} onChange={(value) => setInputValue(value)} value={inputValue} />
-        <span style={{ display: 'block', marginTop: '20px', color: FontColor.Regular }}>
+        <span style={{ display: 'block', marginTop: '20px' }}>
           Проверка передачи значения наружу:
         </span>
-        <span style={{ display: 'block', marginTop: '10px', color: FontColor.Regular }}>
-          {inputValue}
-        </span>
+        <span style={{ display: 'block', marginTop: '10px' }}>{inputValue}</span>
       </div>
     </>
   );

@@ -1,61 +1,109 @@
 import { DefaultTheme } from 'styled-components';
 
-const ThemeColor = {
-  MainDark: '#151513',
-  MainSemiDark: '#3b3830',
-  MainMedium: '#948f7e',
-  MainSemiLight: '#c0bdb0',
-  MainLight: '#e5e2d9',
-  MainError: '#8a1f1f'
-} as const;
+const MainColor = {
+  Dark: '#181818',
+  SemiDark: '#595959',
+  Medium: '#919090',
+  SemiLight: '#cccccc',
+  Light: '#ffffff',
+};
 
-export const FontColor = {
-  Regular: '#9d855f',
-  Disabled: '#666252',
-  Placeholder: '#e2d8bd',
-} as const;
+const AlterColor = {
+  Dark: '#152507',
+  SemiDark: '#406220',
+  Medium: '#6a9443',
+  SemiLight: '#93C06B',
+  Light: '#c1ea9d',
+};
 
-export const darkTheme: DefaultTheme = {
-  name: 'dark',
+const AccentColor = {
+  Dark: '#04292d',
+  SemiDark: '#19565d',
+  Medium: '#4b8c93',
+  SemiLight: '#7bbec5',
+  Light: '#c3ecf1',
+};
+
+const GlobalColor = {
+  Error: '#8a1f1f',
+};
+
+export const lightTheme: DefaultTheme = {
+  name: 'light',
   components: {
     button: {
-      fontColor: {
-        primary: ThemeColor.MainDark,
-        alter: ThemeColor.MainLight,
-        bordered: ThemeColor.MainMedium,
-        disabled: ThemeColor.MainSemiDark,
-        active: ThemeColor.MainMedium,
-        alterHoverFocus: ThemeColor.MainDark,
+      primary: {
+        fontColor: {
+          default: MainColor.Dark,
+          disabled: MainColor.SemiLight,
+          active: MainColor.SemiDark,
+          hoverFocus: MainColor.SemiDark,
+        },
+        bgColor: {
+          default: AccentColor.Light,
+          active: AccentColor.SemiLight,
+          hoverFocus: AccentColor.SemiLight,
+          disabled: AccentColor.Medium,
+        },
       },
-      bgColor: {
-        primary: ThemeColor.MainLight,
-        alter: ThemeColor.MainDark,
-        active: ThemeColor.MainMedium,
-        primaryHoverFocus: ThemeColor.MainSemiLight,
-        disabled: ThemeColor.MainSemiDark,
+      alter: {
+        fontColor: {
+          default: MainColor.Dark,
+          disabled: MainColor.SemiDark,
+          active: MainColor.Dark,
+          hoverFocus: MainColor.Dark,
+        },
+        bgColor: {
+          default: AlterColor.Light,
+          active: AlterColor.SemiLight,
+          hoverFocus: AlterColor.SemiLight,
+          disabled: AlterColor.Medium,
+        },
+      },
+      outlined: {
+        fontColor: {
+          default: MainColor.Dark,
+          disabled: MainColor.SemiDark,
+          active: MainColor.Medium,
+          hoverFocus: MainColor.Dark,
+        },
+        borderColor: {
+          default: MainColor.Light,
+          active: MainColor.Medium,
+          hoverFocus: MainColor.SemiLight,
+          disabled: MainColor.SemiDark,
+        },
+      },
+      borderless: {
+        fontColor: {
+          default: MainColor.Dark,
+          disabled: MainColor.SemiDark,
+          active: MainColor.Medium,
+          hoverFocus: MainColor.Dark,
+        },
       },
     },
     input: {
       fontColor: {
-        default: FontColor.Regular,
-        disabled: FontColor.Disabled,
-        placeholder: FontColor.Placeholder,
+        default: AlterColor.Dark,
+        disabled: AlterColor.SemiLight,
+        placeholder: AlterColor.SemiLight,
       },
       bgColor: {
-        default: ThemeColor.MainDark,
-        focusedActive: ThemeColor.MainDark,
-        disabled: ThemeColor.MainSemiDark,
+        default: MainColor.Light,
+        focusedActive: MainColor.Light,
+        disabled: MainColor.Medium,
       },
       borderColor: {
-        default: ThemeColor.MainMedium,
-        focusedActive: ThemeColor.MainSemiLight,
-        disabled: ThemeColor.MainDark,
-        invalid: ThemeColor.MainError,
+        default: AccentColor.Medium,
+        focusedActive: AccentColor.Light,
+        disabled: MainColor.SemiLight,
+        invalid: GlobalColor.Error,
       },
     },
   },
   globals: {
-    fontColor: FontColor.Regular,
-    bgColor: ThemeColor.MainDark,
+    fontColor: AlterColor.Dark,
+    bgColor: MainColor.SemiLight,
   },
 };

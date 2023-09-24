@@ -5,20 +5,55 @@ declare module 'styled-components' {
     name: string;
     components: {
       button: {
-        fontColor: {
-          primary: string;
-          alter: string;
-          bordered: string;
-          disabled: string;
-          active: string;
-          alterHoverFocus: string;
+        primary: {
+          fontColor: {
+            default: string;
+            disabled: string;
+            active: string;
+            hoverFocus: string;
+          };
+          bgColor: {
+            default: string;
+            hoverFocus: string;
+            active: string;
+            disabled: string;
+          };
         };
-        bgColor: {
-          primary: string;
-          alter: string;
-          primaryHoverFocus: string;
-          active: string;
-          disabled: string;
+        alter: {
+          fontColor: {
+            default: string;
+            disabled: string;
+            active: string;
+            hoverFocus: string;
+          };
+          bgColor: {
+            default: string;
+            hoverFocus: string;
+            active: string;
+            disabled: string;
+          };
+        };
+        outlined: {
+          fontColor: {
+            default: string;
+            disabled: string;
+            active: string;
+            hoverFocus: string;
+          };
+          borderColor: {
+            default: string;
+            hoverFocus: string;
+            active: string;
+            disabled: string;
+          };
+        };
+        borderless: {
+          fontColor: {
+            default: string;
+            disabled: string;
+            active: string;
+            hoverFocus: string;
+          };
         };
       };
       input: {

@@ -66,6 +66,7 @@ const BasicButton = styled.button`
 
   &:disabled {
     transition: all ${TransitionTime.Disabled};
+    cursor: default;
 
     & svg path,
     circle {
@@ -75,84 +76,86 @@ const BasicButton = styled.button`
 `;
 
 export const PrimaryButton = styled(BasicButton)`
-  background-color: ${({ theme }) => theme.buttonColor.default};
-  color: ${({ theme }) => theme.components.button.fontColor.primary};
+  background-color: ${({ theme }) => theme.components.button.primary.bgColor.default};
+  color: ${({ theme }) => theme.components.button.primary.fontColor.default};
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
+    background-color: ${({ theme }) => theme.components.button.primary.bgColor.hoverFocus};
   }
 
   &:active {
-    background-color: ${({ theme }) => theme.components.button.bgColor.active};
+    background-color: ${({ theme }) => theme.components.button.primary.bgColor.active};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.components.button.fontColor.disabled};
+    background-color: ${({ theme }) => theme.components.button.primary.bgColor.disabled};
+    color: ${({ theme }) => theme.components.button.primary.fontColor.disabled};
   }
 `;
 
 export const AlterButton = styled(PrimaryButton)`
-  background-color: ${({ theme }) => theme.buttonColor.alter};
-  color: ${({ theme }) => theme.components.button.fontColor.alter};
+  background-color: ${({ theme }) => theme.components.button.alter.bgColor.default};
+  color: ${({ theme }) => theme.components.button.alter.fontColor.default};
 
   & svg path,
   circle {
-    stroke: ${({ theme }) => theme.components.button.fontColor.alter};
+    stroke: ${({ theme }) => theme.components.button.alter.fontColor.default};
   }
 
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.components.button.fontColor.alterHoverFocus};
+    color: ${({ theme }) => theme.components.button.alter.fontColor.hoverFocus};
+    background-color: ${({ theme }) => theme.components.button.alter.bgColor.hoverFocus};
 
     & path,
     circle {
-      stroke: ${({ theme }) => theme.components.button.fontColor.alterHoverFocus};
+      stroke: ${({ theme }) => theme.components.button.alter.fontColor.hoverFocus};
     }
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.components.button.fontColor.disabled};
-    color: ${({ theme }) => theme.components.button.fontColor.primary};
+    color: ${({ theme }) => theme.components.button.alter.fontColor.disabled};
+    background-color: ${({ theme }) => theme.components.button.alter.bgColor.disabled};
   }
 `;
 
+// TODO: continue from here
 export const OutlinedButton = styled(BasicButton)`
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.buttonColor.default};
-  border-radius: 16px;
 
-  color: ${({ theme }) => theme.components.button.fontColor.bordered};
+  color: ${({ theme }) => theme.components.button.outlined.fontColor.default};
 
   & svg path {
-    stroke: ${({ theme }) => theme.components.button.fontColor.bordered};
+    stroke: ${({ theme }) => theme.components.button.outlined.fontColor.default};
   }
 
   &:hover,
   &:focus {
-    border: 1px solid ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
-    color: ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
+    border: 1px solid ${({ theme }) => theme.components.button.outlined.borderColor.hoverFocus};
+    color: ${({ theme }) => theme.components.button.outlined.fontColor.hoverFocus};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
+      stroke: ${({ theme }) => theme.components.button.outlined.borderColor.hoverFocus};
     }
   }
 
   &:active {
-    border: 1px solid ${({ theme }) => theme.components.button.bgColor.active};
-    color: ${({ theme }) => theme.components.button.bgColor.active};
+    border: 1px solid ${({ theme }) => theme.components.button.outlined.borderColor.active};
+    color: ${({ theme }) => theme.components.button.outlined.fontColor.active};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.bgColor.active};
+      stroke: ${({ theme }) => theme.components.button.outlined.borderColor.active};
     }
   }
 
   &:disabled {
-    border: 1px solid ${({ theme }) => theme.components.button.bgColor.disabled};
-    color: ${({ theme }) => theme.components.button.bgColor.disabled};
+    border: 1px solid ${({ theme }) => theme.components.button.outlined.borderColor.disabled};
+
+    color: ${({ theme }) => theme.components.button.outlined.fontColor.disabled};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.bgColor.disabled};
+      stroke: ${({ theme }) => theme.components.button.outlined.borderColor.disabled};
     }
   }
 `;
@@ -167,34 +170,34 @@ export const BorderlessButton = styled(BasicButton)`
   text-align: center;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.components.button.bgColor.primary};
+  color: ${({ theme }) => theme.components.button.borderless.fontColor.default};
 
   & svg path {
-    stroke: ${({ theme }) => theme.components.button.bgColor.primary};
+    stroke: ${({ theme }) => theme.components.button.borderless.fontColor.default};
   }
 
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
+    color: ${({ theme }) => theme.components.button.borderless.fontColor.hoverFocus};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.bgColor.primaryHoverFocus};
+      stroke: ${({ theme }) => theme.components.button.borderless.fontColor.hoverFocus};
     }
   }
 
   &:active {
-    color: ${({ theme }) => theme.components.button.fontColor.active};
+    color: ${({ theme }) => theme.components.button.borderless.fontColor.active};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.fontColor.active};
+      stroke: ${({ theme }) => theme.components.button.borderless.fontColor.active};
     }
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.components.button.fontColor.disabled};
+    color: ${({ theme }) => theme.components.button.borderless.fontColor.disabled};
 
     & svg path {
-      stroke: ${({ theme }) => theme.components.button.fontColor.disabled};
+      stroke: ${({ theme }) => theme.components.button.borderless.fontColor.disabled};
     }
   }
 `;

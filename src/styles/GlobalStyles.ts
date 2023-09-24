@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: calc(100vh + 1px);
 
     font-family: ${FontFamily.Ubuntu};
+    color: ${({ theme }) => theme.globals.fontColor};
 
     background-color: ${({ theme }) => theme.globals.bgColor};
   }

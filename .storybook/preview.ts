@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 
 import { ThemeProvider } from 'styled-components';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
-import { darkTheme, GlobalStyles } from '../src/styles';
+import { lightTheme, GlobalStyles } from '../src/styles';
 
 const preview: Preview = {
   parameters: {
@@ -20,9 +20,9 @@ const preview: Preview = {
     // TODO: добавлен костыль в виде any из-за багов в библиотеке
     withThemeFromJSXProvider({
       themes: {
-        dark: darkTheme,
+        light: lightTheme,
       },
-      defaultTheme: 'dark',
+      defaultTheme: 'light',
       Provider: ThemeProvider,
       GlobalStyles,
     }) as any,
