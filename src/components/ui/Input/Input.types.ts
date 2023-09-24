@@ -1,4 +1,6 @@
 export interface IInputProps {
+  type: 'text' | 'password';
+  isValid?: boolean;
   isDisabled?: boolean;
   placeholder?: string;
   value: string;

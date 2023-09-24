@@ -17,6 +17,7 @@ const preview: Preview = {
 
   decorators: [
     // Adds global styles and theme switching support.
+    // TODO: добавлен костыль в виде any из-за багов в библиотеке
     withThemeFromJSXProvider({
       themes: {
         dark: darkTheme,
@@ -24,7 +25,7 @@ const preview: Preview = {
       defaultTheme: 'dark',
       Provider: ThemeProvider,
       GlobalStyles,
-    }),
+    }) as any,
   ],
 };
 

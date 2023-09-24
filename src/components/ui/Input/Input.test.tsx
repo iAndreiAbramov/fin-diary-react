@@ -14,6 +14,7 @@ describe('Input', function () {
     render(
       wrapWithDarkTheme(
         <InputText
+          type='text'
           value={initialValue}
           onChange={mockOnChange}
           placeholder={placeholder}
@@ -34,6 +35,7 @@ describe('Input', function () {
     render(
       wrapWithDarkTheme(
         <InputText
+          type='text'
           value=""
           onChange={mockOnChange}
           placeholder={placeholder}
@@ -54,6 +56,7 @@ describe('Input', function () {
     render(
       wrapWithDarkTheme(
         <InputText
+          type='text'
           value=""
           onChange={mockOnChange}
           placeholder={placeholder}
