@@ -4,7 +4,7 @@ const MainColor = {
   Dark: '#181818',
   SemiDark: '#595959',
   Medium: '#919090',
-  SemiLight: '#cccccc',
+  SemiLight: '#c4c4c4',
   Light: '#ffffff',
 };
 
@@ -24,8 +24,12 @@ const AccentColor = {
   Light: '#c3ecf1',
 };
 
-const GlobalColor = {
-  Error: '#8a1f1f',
+const AlertColor = {
+  Dark: '#380303',
+  SemiDark: '#651010',
+  Medium: '#8a1f1f',
+  SemiLight: '#be3d3d',
+  Light: '#f56b6b',
 };
 
 export const lightTheme: DefaultTheme = {
@@ -49,7 +53,7 @@ export const lightTheme: DefaultTheme = {
       alter: {
         fontColor: {
           default: MainColor.Dark,
-          disabled: MainColor.SemiDark,
+          disabled: MainColor.SemiLight,
           active: MainColor.Dark,
           hoverFocus: MainColor.Dark,
         },
@@ -62,24 +66,24 @@ export const lightTheme: DefaultTheme = {
       },
       outlined: {
         fontColor: {
-          default: MainColor.Dark,
-          disabled: MainColor.SemiDark,
-          active: MainColor.Medium,
-          hoverFocus: MainColor.Dark,
+          default: AccentColor.Medium,
+          hoverFocus: AccentColor.Dark,
+          active: AccentColor.Dark,
+          disabled: AccentColor.Light,
         },
         borderColor: {
-          default: MainColor.Light,
-          active: MainColor.Medium,
-          hoverFocus: MainColor.SemiLight,
-          disabled: MainColor.SemiDark,
+          default: AccentColor.Medium,
+          hoverFocus: AccentColor.Dark,
+          active: AccentColor.Dark,
+          disabled: AccentColor.Light,
         },
       },
       borderless: {
         fontColor: {
-          default: MainColor.Dark,
-          disabled: MainColor.SemiDark,
-          active: MainColor.Medium,
-          hoverFocus: MainColor.Dark,
+          default: AccentColor.Medium,
+          hoverFocus: AccentColor.Dark,
+          active: AccentColor.Dark,
+          disabled: AccentColor.Light,
         },
       },
     },
@@ -98,7 +102,7 @@ export const lightTheme: DefaultTheme = {
         default: AccentColor.Medium,
         focusedActive: AccentColor.Light,
         disabled: MainColor.SemiLight,
-        invalid: GlobalColor.Error,
+        invalid: AlertColor.SemiLight,
       },
     },
   },
