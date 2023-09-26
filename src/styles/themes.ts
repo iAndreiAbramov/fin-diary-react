@@ -1,11 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
 const MainColor = {
-  Dark: '#181818',
-  SemiDark: '#595959',
-  Medium: '#919090',
-  SemiLight: '#c4c4c4',
-  Light: '#ffffff',
+  Dark: '#3a3a37',
+  SemiDark: '#5b5957',
+  Medium: '#93918d',
+  SemiLight: '#ccc9c4',
+  Light: '#faf8f1',
 };
 
 const AlterColor = {
