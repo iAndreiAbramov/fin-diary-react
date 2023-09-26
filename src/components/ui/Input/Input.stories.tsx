@@ -35,7 +35,7 @@ export const Password: Story = {
 };
 
 export const Invalid: Story = {
-  render: () => <Template type="text" isValid={false} />,
+  render: () => <Template type="text" isValid={false} placeholder="invalid" />,
 };
 
 export const Disabled: Story = {
