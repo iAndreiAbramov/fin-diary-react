@@ -78,6 +78,7 @@ declare module 'styled-components' {
     globals: {
       fontColor: string;
       bgColor: string;
+      fgColor: string;
     };
   }
 }

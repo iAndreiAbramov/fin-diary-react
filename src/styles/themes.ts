@@ -109,5 +109,6 @@ export const lightTheme: DefaultTheme = {
   globals: {
     fontColor: AlterColor.Dark,
     bgColor: MainColor.SemiLight,
+    fgColor: AlterColor.SemiLight,
   },
 };
