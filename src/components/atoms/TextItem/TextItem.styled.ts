@@ -5,4 +5,5 @@ export const TextItem = styled.span`
   font-family: ${FontFamily.Ubuntu};
   font-size: 16px;
   font-weight: ${FontWeight.Normal};
+  color: ${({ theme }) => theme.globals.fontColor};
 `;
