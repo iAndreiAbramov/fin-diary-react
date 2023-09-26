@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { IButtonProps } from './Button.types';
 
@@ -7,24 +7,32 @@ import * as S from './Button.styled';
 const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (
     {
-      type = 'primary',
+      displayType = 'primary',
       text = '',
       title = '',
       icon,
-      onClick,
+      handleClick,
       isDisabled = false,
       isReversed = false,
       className,
       testId,
+      ...props
     },
     ref,
   ) => {
-    switch (type) {
+    const handleButtonClick = useCallback((): void => {
+      if (typeof handleClick !== 'undefined') {
+        handleClick();
+      }
+    }, [handleClick]);
+
+    switch (displayType) {
       case 'alter':
         return (
           <S.AlterButton
+            {...props}
             ref={ref}
-            onClick={() => onClick()}
+            onClick={handleButtonClick}
             disabled={isDisabled}
             title={title}
             className={className}
@@ -46,8 +54,9 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       case 'outlined':
         return (
           <S.OutlinedButton
+            {...props}
             ref={ref}
-            onClick={() => onClick()}
+            onClick={handleButtonClick}
             disabled={isDisabled}
             title={title}
             className={className}
@@ -69,8 +78,9 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       case 'borderless':
         return (
           <S.BorderlessButton
+            {...props}
             ref={ref}
-            onClick={() => onClick()}
+            onClick={handleButtonClick}
             disabled={isDisabled}
             title={title}
             className={className}
@@ -92,8 +102,9 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       case 'surroundedIcon':
         return (
           <S.SurroundedIcon
+            {...props}
             ref={ref}
-            onClick={() => onClick()}
+            onClick={handleButtonClick}
             disabled={isDisabled}
             title={title}
             className={className}
@@ -105,8 +116,9 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       case 'primary':
         return (
           <S.PrimaryButton
+            {...props}
             ref={ref}
-            onClick={() => onClick()}
+            onClick={handleButtonClick}
             disabled={isDisabled}
             title={title}
             className={className}

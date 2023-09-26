@@ -18,7 +18,7 @@ const handleButtonClick = (): void => alert('click');
 
 export const Primary: Story = {
   args: {
-    type: 'primary',
+    displayType: 'primary',
     onClick: handleButtonClick,
     text: 'Button',
     icon: <Plus />,
@@ -27,7 +27,7 @@ export const Primary: Story = {
 
 export const PrimaryDisabled: Story = {
   args: {
-    type: 'primary',
+    displayType: 'primary',
     onClick: handleButtonClick,
     text: 'Button',
     isDisabled: true,
@@ -37,7 +37,7 @@ export const PrimaryDisabled: Story = {
 
 export const Alter: Story = {
   args: {
-    type: 'alter',
+    displayType: 'alter',
     onClick: handleButtonClick,
     text: 'Button',
     icon: <Plus />,
@@ -46,7 +46,7 @@ export const Alter: Story = {
 
 export const AlterDisabled: Story = {
   args: {
-    type: 'alter',
+    displayType: 'alter',
     onClick: handleButtonClick,
     text: 'Button',
     isDisabled: true,
@@ -56,7 +56,7 @@ export const AlterDisabled: Story = {
 
 export const Outlined: Story = {
   args: {
-    type: 'outlined',
+    displayType: 'outlined',
     onClick: handleButtonClick,
     text: 'Button',
     icon: <Plus />,
@@ -65,7 +65,7 @@ export const Outlined: Story = {
 
 export const OutlinedDisabled: Story = {
   args: {
-    type: 'outlined',
+    displayType: 'outlined',
     onClick: handleButtonClick,
     text: 'Button',
     isDisabled: true,
@@ -75,7 +75,7 @@ export const OutlinedDisabled: Story = {
 
 export const Borderless: Story = {
   args: {
-    type: 'borderless',
+    displayType: 'borderless',
     onClick: handleButtonClick,
     text: 'Button',
     icon: <Plus />,
@@ -84,7 +84,7 @@ export const Borderless: Story = {
 
 export const BorderlessDisabled: Story = {
   args: {
-    type: 'borderless',
+    displayType: 'borderless',
     onClick: handleButtonClick,
     text: 'Button',
     isDisabled: true,
@@ -94,7 +94,7 @@ export const BorderlessDisabled: Story = {
 
 export const SurroundedIcon: Story = {
   args: {
-    type: 'surroundedIcon',
+    displayType: 'surroundedIcon',
     onClick: handleButtonClick,
     text: 'Button',
     icon: <Plus />,
@@ -103,7 +103,7 @@ export const SurroundedIcon: Story = {
 
 export const SurroundedIconDisabled: Story = {
   args: {
-    type: 'surroundedIcon',
+    displayType: 'surroundedIcon',
     onClick: handleButtonClick,
     text: 'Button',
     isDisabled: true,
