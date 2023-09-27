@@ -1,9 +1,9 @@
 import { TransitionTime } from 'constants/style-variables/sizes';
 import { css, styled } from 'styled-components';
+import { shake } from 'styles/keyframes/shake';
 
 import { TextItem } from 'components/atoms/TextItem';
 import Button from 'components/ui/Button';
-import { shake } from 'utils/keyframes/shake';
 
 export const Form = styled.form<{ $isFailed: boolean }>`
   display: flex;
