@@ -1,77 +1,63 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { Field, Form } from 'react-final-form';
 
-import Input from 'components/ui/Input';
+import { composeValidators, isNotToShort, isRequired, isValidEmail } from 'utils/validators';
 
+import FormInput from './FormInput';
+import { MIN_PASSWORD_LENGTH } from './LoginForm.constants';
 import { ILoginFormProps } from './LoginForm.types';
+import { validate } from './LoginForm.utils';
 
 import * as S from './LoginForm.styled';
 
 const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-
-  const handleEmailChange = useCallback((value: string) => {
-    setEmail(value);
-  }, []);
-
-  const handlePasswordChange = useCallback((value: string) => {
-    setPassword(value);
-  }, []);
-
-  const handlePasswordConfirmationChange = useCallback((value: string) => {
-    setPasswordConfirmation(value);
-  }, []);
-
-  const onFormSubmit = useCallback(() => {
-    onSubmit({ email, password, passwordConfirmation });
-  }, [email, password, passwordConfirmation, onSubmit]);
-
   return (
-    <Form
-      onSubmit={onFormSubmit}
-      render={({ handleSubmit }) => (
-        <S.Form as="form" onSubmit={() => handleSubmit()}>
-          <Field
-            name="email"
-            render={({ input }) => (
-              <>
-                <S.Label>
-                  <S.LabelText as="span">Электронная почта</S.LabelText>
-                  <Input {...input} type="text" onChange={handleEmailChange} value={email} />
-                </S.Label>
-                <S.Label>
-                  <S.LabelText>Пароль</S.LabelText>
-                  <Input
-                    {...input}
-                    type="password"
-                    onChange={handlePasswordChange}
-                    value={password}
-                  />
-                </S.Label>
-                {type === 'register' && (
-                  <S.Label>
-                    <S.LabelText>Подтвердите пароль</S.LabelText>
-                    <Input
-                      {...input}
-                      type="password"
-                      onChange={handlePasswordConfirmationChange}
-                      value={passwordConfirmation}
-                    />
-                  </S.Label>
-                )}
-                <S.SubmitButton
-                  type="submit"
-                  displayType="primary"
-                  text={type === 'register' ? 'Зарегистрироваться' : 'Войти'}
+    <Form onSubmit={onSubmit} validate={type === 'register' ? validate : undefined}>
+      {({ handleSubmit, submitFailed, hasValidationErrors }) => (
+        <S.Form as="form" onSubmit={handleSubmit} isFailed={submitFailed}>
+          <Field name="email" validate={composeValidators([isRequired, isValidEmail])}>
+            {({ input, meta }) => (
+              <S.FieldWrapper>
+                <FormInput
+                  {...input}
+                  type="text"
+                  labelText="Электронная почта"
+                  isValid={!meta.error || !submitFailed}
                 />
-              </>
+                {meta.error && submitFailed && <S.ErrorText>{meta.error}</S.ErrorText>}
+              </S.FieldWrapper>
             )}
+          </Field>
+          <Field
+            name="password"
+            validate={composeValidators([isRequired, isNotToShort(MIN_PASSWORD_LENGTH)])}
+          >
+            {({ input, meta }) => (
+              <S.FieldWrapper>
+                <FormInput {...input} type="password" labelText="Пароль" />
+                {meta.error && submitFailed && <S.ErrorText>{meta.error}</S.ErrorText>}
+              </S.FieldWrapper>
+            )}
+          </Field>
+          {type === 'register' && (
+            <Field name="passwordConfirmation" validate={isRequired}>
+              {({ input, meta }) => (
+                <S.FieldWrapper>
+                  <FormInput {...input} type="password" labelText="Повторите пароль" />
+                  {meta.error && submitFailed && <S.ErrorText>{meta.error}</S.ErrorText>}
+                </S.FieldWrapper>
+              )}
+            </Field>
+          )}
+          <S.SubmitButton
+            type="submit"
+            displayType="primary"
+            text={type === 'register' ? 'Зарегистрироваться' : 'Войти'}
+            disabled={submitFailed && hasValidationErrors}
           />
         </S.Form>
       )}
-    />
+    </Form>
   );
 };
 

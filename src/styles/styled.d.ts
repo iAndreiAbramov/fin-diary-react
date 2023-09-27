@@ -79,6 +79,7 @@ declare module 'styled-components' {
       fontColor: string;
       bgColor: string;
       fgColor: string;
+      errorText: string;
     };
   }
 }

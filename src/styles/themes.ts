@@ -110,5 +110,6 @@ export const lightTheme: DefaultTheme = {
     fontColor: AlterColor.Dark,
     bgColor: MainColor.SemiLight,
     fgColor: AlterColor.SemiLight,
+    errorText: AlertColor.Medium,
   },
 };

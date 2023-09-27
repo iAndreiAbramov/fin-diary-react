@@ -10,3 +10,5 @@ export interface ILoginFormValues {
   password: string;
   passwordConfirmation: string;
 }
+
+export type TLoginFormErrors = Partial<ILoginFormValues>;
