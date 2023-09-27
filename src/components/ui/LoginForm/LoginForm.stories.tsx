@@ -26,3 +26,11 @@ export const Login: Story = {
     onSubmit: (values) => alert(JSON.stringify(values)),
   },
 };
+
+export const LoginWithError: Story = {
+  args: {
+    type: 'login',
+    onSubmit: (values) => alert(JSON.stringify(values)),
+    backendError: 'Login or password is incorrect',
+  },
+};

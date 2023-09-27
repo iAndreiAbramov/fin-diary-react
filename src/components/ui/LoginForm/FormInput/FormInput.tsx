@@ -23,8 +23,8 @@ const FormInput = forwardRef<HTMLInputElement | null, IInputProps>(
               as="input"
               {...props}
               type={type}
-              isValid={isValid}
-              hasIcon={false}
+              $isValid={isValid}
+              $hasIcon={false}
               ref={ref}
             />
           </S.Label>
@@ -37,8 +37,8 @@ const FormInput = forwardRef<HTMLInputElement | null, IInputProps>(
               as="input"
               {...props}
               type={isPasswordVisible ? 'text' : 'password'}
-              isValid={isValid}
-              hasIcon
+              $isValid={isValid}
+              $hasIcon
               ref={ref}
             />
             <S.IconWrapper as="div" onClick={handleChangeVisibility}>
