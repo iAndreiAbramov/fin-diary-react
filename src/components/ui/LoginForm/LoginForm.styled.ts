@@ -11,7 +11,7 @@ export const Form = styled.form<{ $isFailed: boolean }>`
   gap: 12px;
 
   max-width: 380px;
-  padding: 24px 16px;
+  padding: 24px 16px 32px;
   border-radius: 16px;
 
   background: ${({ theme }) => theme.globals.fgColor};

@@ -34,7 +34,12 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
           >
             {({ input, meta }) => (
               <S.FieldWrapper as="div">
-                <FormInput {...input} type="password" labelText="Пароль" />
+                <FormInput
+                  {...input}
+                  type="password"
+                  labelText="Пароль"
+                  isValid={!meta.error || !submitFailed}
+                />
                 {meta.error && submitFailed && <S.ErrorText as="span">{meta.error}</S.ErrorText>}
               </S.FieldWrapper>
             )}
@@ -43,7 +48,12 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
             <Field name="passwordConfirmation" validate={isRequired}>
               {({ input, meta }) => (
                 <S.FieldWrapper as="div">
-                  <FormInput {...input} type="password" labelText="Повторите пароль" />
+                  <FormInput
+                    {...input}
+                    type="password"
+                    labelText="Повторите пароль"
+                    isValid={!meta.error || !submitFailed}
+                  />
                   {meta.error && submitFailed && <S.ErrorText as="span">{meta.error}</S.ErrorText>}
                 </S.FieldWrapper>
               )}
@@ -55,9 +65,11 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
             text={type === 'register' ? 'Зарегистрироваться' : 'Войти'}
             disabled={submitFailed && hasValidationErrors}
           />
-          <S.ErrorContainer as="div" $hasError={!!backendError}>
-            {backendError && <S.ErrorText as="span">{backendError}</S.ErrorText>}
-          </S.ErrorContainer>
+          {backendError && (
+            <S.ErrorContainer as="div" $hasError={!!backendError}>
+              <S.ErrorText as="span">{backendError}</S.ErrorText>
+            </S.ErrorContainer>
+          )}
         </S.Form>
       )}
     </Form>

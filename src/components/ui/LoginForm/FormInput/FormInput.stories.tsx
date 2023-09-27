@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Input from './FormInput';
+import FormInput from './FormInput';
 
-const meta: Meta<typeof Input> = {
-  title: 'UI/Input',
-  component: Input,
+const meta: Meta<typeof FormInput> = {
+  title: 'UI/FormInput',
+  component: FormInput,
 };
 
 export default meta;
@@ -35,7 +35,7 @@ export const Invalid: Story = {
 export const Disabled: Story = {
   args: {
     type: 'text',
-    placeholder: 'Enabled',
+    placeholder: 'Disabled',
     disabled: true,
   },
 };
