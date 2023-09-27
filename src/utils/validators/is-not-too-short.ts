@@ -2,7 +2,7 @@ import { ValidationErrorMessage } from 'constants/messages/validation-error.mess
 
 import { TValidatorResponse } from './validators.types';
 
-export const isNotToShort =
+export const isNotTooShort =
   (minLength: number) =>
   (value: string): TValidatorResponse =>
     value?.length >= minLength ? undefined : ValidationErrorMessage.PasswordIsTooShort(minLength);

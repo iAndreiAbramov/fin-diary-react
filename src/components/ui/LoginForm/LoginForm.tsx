@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
 
-import { composeValidators, isNotToShort, isRequired, isValidEmail } from 'utils/validators';
+import { composeValidators, isNotTooShort, isRequired, isValidEmail } from 'utils/validators';
 
 import FormInput from './FormInput';
 import { MIN_PASSWORD_LENGTH } from './LoginForm.constants';
@@ -30,7 +30,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
           </Field>
           <Field
             name="password"
-            validate={composeValidators([isRequired, isNotToShort(MIN_PASSWORD_LENGTH)])}
+            validate={composeValidators([isRequired, isNotTooShort(MIN_PASSWORD_LENGTH)])}
           >
             {({ input, meta }) => (
               <S.FieldWrapper as="div">
