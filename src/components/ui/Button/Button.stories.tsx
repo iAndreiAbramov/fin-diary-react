@@ -30,7 +30,7 @@ export const PrimaryDisabled: Story = {
     displayType: 'primary',
     onClick: handleButtonClick,
     text: 'Button',
-    isDisabled: true,
+    disabled: true,
     icon: <Plus />,
   },
 };
@@ -49,7 +49,7 @@ export const AlterDisabled: Story = {
     displayType: 'alter',
     onClick: handleButtonClick,
     text: 'Button',
-    isDisabled: true,
+    disabled: true,
     icon: <Plus />,
   },
 };
@@ -68,7 +68,7 @@ export const OutlinedDisabled: Story = {
     displayType: 'outlined',
     onClick: handleButtonClick,
     text: 'Button',
-    isDisabled: true,
+    disabled: true,
     icon: <Plus />,
   },
 };
@@ -87,7 +87,7 @@ export const BorderlessDisabled: Story = {
     displayType: 'borderless',
     onClick: handleButtonClick,
     text: 'Button',
-    isDisabled: true,
+    disabled: true,
     icon: <Plus />,
   },
 };
@@ -106,7 +106,7 @@ export const SurroundedIconDisabled: Story = {
     displayType: 'surroundedIcon',
     onClick: handleButtonClick,
     text: 'Button',
-    isDisabled: true,
+    disabled: true,
     icon: <Plus />,
   },
 };

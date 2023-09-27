@@ -7,36 +7,45 @@ import * as S from './Button.styled';
 const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (
     {
-      displayType = 'primary',
+      displayType,
       text = '',
       title = '',
       icon,
-      handleClick,
-      isDisabled = false,
       isReversed = false,
       className,
-      testId,
       ...props
     },
     ref,
   ) => {
-    const handleButtonClick = useCallback((): void => {
-      if (typeof handleClick !== 'undefined') {
-        handleClick();
-      }
-    }, [handleClick]);
-
     switch (displayType) {
+      case 'primary':
+        return (
+          <S.PrimaryButton
+            {...props}
+            ref={ref}
+            title={title}
+            className={className}
+          >
+            {isReversed ? (
+              <>
+                {text && text}
+                {icon && icon}
+              </>
+            ) : (
+              <>
+                {icon && icon}
+                {text && text}
+              </>
+            )}
+          </S.PrimaryButton>
+        );
       case 'alter':
         return (
           <S.AlterButton
             {...props}
             ref={ref}
-            onClick={handleButtonClick}
-            disabled={isDisabled}
             title={title}
             className={className}
-            data-testid={testId}
           >
             {isReversed ? (
               <>
@@ -56,11 +65,8 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
           <S.OutlinedButton
             {...props}
             ref={ref}
-            onClick={handleButtonClick}
-            disabled={isDisabled}
             title={title}
             className={className}
-            data-testid={testId}
           >
             {isReversed ? (
               <>
@@ -80,11 +86,8 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
           <S.BorderlessButton
             {...props}
             ref={ref}
-            onClick={handleButtonClick}
-            disabled={isDisabled}
             title={title}
             className={className}
-            data-testid={testId}
           >
             {isReversed ? (
               <>
@@ -104,38 +107,11 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
           <S.SurroundedIcon
             {...props}
             ref={ref}
-            onClick={handleButtonClick}
-            disabled={isDisabled}
             title={title}
             className={className}
-            data-testid={testId}
           >
             {icon && icon}
           </S.SurroundedIcon>
-        );
-      case 'primary':
-        return (
-          <S.PrimaryButton
-            {...props}
-            ref={ref}
-            onClick={handleButtonClick}
-            disabled={isDisabled}
-            title={title}
-            className={className}
-            data-testid={testId}
-          >
-            {isReversed ? (
-              <>
-                {text && text}
-                {icon && icon}
-              </>
-            ) : (
-              <>
-                {icon && icon}
-                {text && text}
-              </>
-            )}
-          </S.PrimaryButton>
         );
     }
   },

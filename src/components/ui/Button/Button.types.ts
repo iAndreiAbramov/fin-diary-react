@@ -7,8 +7,4 @@ export interface IButtonProps
   title?: string;
   icon?: ReactElement;
   isReversed?: boolean;
-  isDisabled?: boolean;
-  handleClick?: (value?: string) => void;
-  className?: string;
-  testId?: string;
 }
