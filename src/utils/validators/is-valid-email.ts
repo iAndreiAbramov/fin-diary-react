@@ -1,6 +1,6 @@
 import { ValidationErrorMessage } from 'constants/messages/validation-error.message';
 
-import { TValidatorResponse } from './validators.types';
+import { TValidatorResponse } from './types/validators.types';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
