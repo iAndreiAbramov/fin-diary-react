@@ -1,16 +1,18 @@
+import { BreakPoint } from 'constants/style-variables/breakpoints';
 import { TransitionTime } from 'constants/style-variables/sizes';
 import { css, styled } from 'styled-components';
 import { shake } from 'styles/keyframes/shake';
 
 import { TextItem } from 'components/atoms/TextItem';
 import Button from 'components/ui/Button';
+import LinkItem from 'components/ui/LinkItem';
 
 export const Form = styled.form<{ $isFailed: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 12px;
 
-  max-width: 380px;
+  width: 380px;
   padding: 24px 16px 32px;
   border-radius: 16px;
 
@@ -22,7 +24,11 @@ export const Form = styled.form<{ $isFailed: boolean }>`
         animation: ${shake} 0.4s ease;
       `;
     }
-  }}
+  }};
+
+  @media (max-width: ${BreakPoint.MobileTop}) {
+    min-width: 320px;
+  }
 `;
 
 export const FieldWrapper = styled.div`
@@ -66,4 +72,12 @@ export const ErrorContainer = styled.div<{ $hasError: boolean }>`
           opacity: 0;
           transform: translateY(-50%);
         `};
+`;
+
+export const AlterLink = styled(LinkItem)`
+  align-self: center;
+
+  margin-top: 12px;
+
+  color: ${({ theme }) => theme.globals.fontColor};
 `;
