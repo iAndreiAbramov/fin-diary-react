@@ -3,13 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import PageDashboard from 'pages/Dashboard';
 import PageHome from 'pages/Home';
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, GlobalStyles } from 'styles';
+import { GlobalStyles,lightTheme } from 'styles';
 
 import { GetRoute } from 'utils/routes/get-route';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <Routes>
         <Route path={GetRoute.Home()} element={<PageHome />} />
