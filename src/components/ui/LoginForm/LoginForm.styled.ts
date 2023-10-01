@@ -1,7 +1,7 @@
-import { BreakPoint } from 'constants/style-variables/breakpoints';
-import { TransitionTime } from 'constants/style-variables/sizes';
 import { css, styled } from 'styled-components';
 import { shake } from 'styles/keyframes/shake';
+import { BreakPoint } from 'styles/variables/breakpoints';
+import { TransitionTime } from 'styles/variables/sizes';
 
 import { TextItem } from 'components/atoms/TextItem';
 import Button from 'components/ui/Button';

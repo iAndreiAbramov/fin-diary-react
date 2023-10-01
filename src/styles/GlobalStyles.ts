@@ -1,6 +1,6 @@
-import { BreakPoint } from 'constants/style-variables/breakpoints';
-import { FontFamily } from 'constants/style-variables/fonts';
 import { createGlobalStyle } from 'styled-components';
+import { BreakPoint } from 'styles/variables/breakpoints';
+import { FontFamily } from 'styles/variables/fonts';
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -11,9 +11,9 @@ export const GlobalStyles = createGlobalStyle`
     min-height: calc(100vh + 1px);
 
     font-family: ${FontFamily.Ubuntu};
-    color: ${({ theme }) => theme.globals.fontColor};
+    color: ${({ theme }) => theme.globals.fontColor.default};
 
-    background-color: ${({ theme }) => theme.globals.bgColor};
+    background-color: ${({ theme }) => theme.globals.bgColor.default};
   }
 
   body * {

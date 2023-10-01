@@ -80,9 +80,9 @@ export const lightTheme: DefaultTheme = {
       },
       borderless: {
         fontColor: {
-          default: AccentColor.Medium,
-          hoverFocus: AccentColor.Dark,
-          active: AccentColor.Dark,
+          default: AccentColor.Dark,
+          hoverFocus: AccentColor.Medium,
+          active: AccentColor.Medium,
           disabled: AccentColor.Light,
         },
       },
@@ -105,11 +105,33 @@ export const lightTheme: DefaultTheme = {
         invalid: AlertColor.SemiLight,
       },
     },
+    mainMenuItem: {
+      fontColor: {
+        default: AccentColor.Light,
+        active: AccentColor.Medium,
+        hoverFocus: AccentColor.Medium,
+      },
+      bgColor: {
+        default: 'none',
+        hoverFocus: MainColor.SemiDark,
+        active: MainColor.SemiDark,
+      },
+    },
   },
   globals: {
-    fontColor: AlterColor.Dark,
-    bgColor: MainColor.SemiLight,
-    fgColor: AlterColor.SemiLight,
+    bgColor: {
+      default: MainColor.Light,
+      header: MainColor.Dark,
+      footer: MainColor.Dark,
+    },
+    fontColor: {
+      default: AccentColor.Dark,
+      inverse: AccentColor.Light,
+    },
+    fgColor: {
+      firstLevel: MainColor.SemiDark,
+      secondLevel: MainColor.Medium,
+    },
     errorText: AlertColor.Medium,
   },
 };

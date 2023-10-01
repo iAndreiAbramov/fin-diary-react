@@ -1,5 +1,5 @@
-import { FontFamily } from 'constants/style-variables/fonts';
 import { styled } from 'styled-components';
+import { FontFamily } from 'styles/variables/fonts';
 
 import { Input } from 'components/atoms/Input';
 import { TextItem } from 'components/atoms/TextItem';

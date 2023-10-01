@@ -1,5 +1,5 @@
-import { FontFamily, FontWeight } from 'constants/style-variables/fonts';
 import { styled } from 'styled-components';
+import { FontFamily, FontWeight } from 'styles/variables/fonts';
 
 export const TextItem = styled.span`
   font-family: ${FontFamily.Ubuntu};
