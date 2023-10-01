@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
 
+import { GetRoute } from 'utils/routes/get-route';
 import { composeValidators, isNotTooShort, isRequired, isValidEmail } from 'utils/validators';
 
 import FormInput from './FormInput';
@@ -14,7 +15,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
   return (
     <Form onSubmit={onSubmit} validate={type === 'register' ? validate : undefined}>
       {({ handleSubmit, submitFailed, hasValidationErrors }) => (
-        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed}>
+        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed} autoComplete="off">
           <Field name="email" validate={composeValidators([isRequired, isValidEmail])}>
             {({ input, meta }) => (
               <S.FieldWrapper as="div">
@@ -70,6 +71,11 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
               <S.ErrorText as="span">{backendError}</S.ErrorText>
             </S.ErrorContainer>
           )}
+          <S.AlterLink
+            linkTo={type === 'login' ? GetRoute.Registration() : GetRoute.Login()}
+            name={type === 'login' ? 'Зарегистрироваться' : 'Войти'}
+            title={type === 'login' ? 'Зарегистрироваться' : 'Войти'}
+          />
         </S.Form>
       )}
     </Form>

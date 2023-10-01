@@ -1,7 +1,7 @@
-import { BreakPoint } from 'constants/style-variables/breakpoints';
-import { FontFamily } from 'constants/style-variables/fonts';
-import { TransitionTime } from 'constants/style-variables/sizes';
 import { styled } from 'styled-components';
+import { BreakPoint } from 'styles/variables/breakpoints';
+import { FontFamily } from 'styles/variables/fonts';
+import { TransitionTime } from 'styles/variables/sizes';
 
 const BasicButton = styled.button`
   display: flex;
@@ -21,6 +21,7 @@ const BasicButton = styled.button`
   text-align: center;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  user-select: none;
 
   border: none;
   border-radius: 12px;
@@ -33,11 +34,7 @@ const BasicButton = styled.button`
     flex-grow: 0;
     flex-shrink: 0;
   }
-
-  @media (max-width: ${BreakPoint.TabletTop}) {
-    user-select: none;
-  }
-
+  
   & svg {
     path,
     circle {

@@ -1,7 +1,8 @@
 export const HeaderHeight = {
-  Desktop: '96px',
-  Tablet: '96px',
-  Mobile: '68px',
+  Desktop: '64px',
+  Laptop: '64px',
+  Tablet: '44px',
+  Mobile: '44px',
 };
 
 export const LayoutPadding = {

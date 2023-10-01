@@ -1,6 +1,6 @@
-import { FontFamily } from 'constants/style-variables/fonts';
-import { TransitionTime } from 'constants/style-variables/sizes';
 import { styled } from 'styled-components';
+import { FontFamily } from 'styles/variables/fonts';
+import { TransitionTime } from 'styles/variables/sizes';
 
 export const Input = styled.input<{ $hasIcon: boolean; $isValid: boolean }>`
   padding: ${({ $hasIcon }) => ($hasIcon ? `12px 46px 12px 24px` : '12px 24px')};

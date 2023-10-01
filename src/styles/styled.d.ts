@@ -74,11 +74,33 @@ declare module 'styled-components' {
           invalid: string;
         };
       };
+      mainMenuItem: {
+        fontColor: {
+          default: string;
+          active: string;
+          hoverFocus: string;
+        };
+        bgColor: {
+          default: string;
+          hoverFocus: string;
+          active: string;
+        };
+      };
     };
     globals: {
-      fontColor: string;
-      bgColor: string;
-      fgColor: string;
+      bgColor: {
+        default: string;
+        header: string;
+        footer: string;
+      };
+      fontColor: {
+        default: string;
+        inverse: string;
+      };
+      fgColor: {
+        firstLevel: string;
+        secondLevel: string;
+      };
       errorText: string;
     };
   }
