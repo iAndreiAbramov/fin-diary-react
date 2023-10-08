@@ -10,8 +10,6 @@ export const Wrapper = styled.div`
   gap: 24px;
 
   height: 100%;
-
-  color: ${({ theme }) => theme.globals.fontColor.inverse};
 `;
 
 export const MenuButton = styled(Button)`
@@ -21,11 +19,13 @@ export const MenuButton = styled(Button)`
   & svg path {
     width: 32px;
     height: 32px;
-    fill: ${({ theme }) => theme.globals.fontColor.inverse};
-    stroke: ${({ theme }) => theme.globals.fontColor.inverse};
   }
 
   @media (min-width: ${BreakPoint.LaptopLow}) {
     display: none;
   }
 `;
+
+export const LogoutButton = styled(Button)`
+  margin-left: auto;
+`

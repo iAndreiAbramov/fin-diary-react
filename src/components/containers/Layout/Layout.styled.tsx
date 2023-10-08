@@ -13,6 +13,7 @@ export const HeaderWrapper = styled.header`
   padding: 16px ${LayoutPadding.Desktop};
 
   background-color: ${({ theme }) => theme.globals.bgColor.header};
+  border-bottom: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`}
 `;
 
 export const DashboardWrapper = styled.div`
@@ -31,6 +32,7 @@ export const MenuWrapper = styled.nav<{ $isActive: boolean }>`
   padding: 10px 16px 24px 12px;
 
   background-color: ${({ theme }) => theme.globals.bgColor.header};
+  border-right: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`};
 
   @media (max-width: ${BreakPoint.TabletTop}) {
     padding: 32px 16px;
@@ -65,4 +67,5 @@ export const FooterWrapper = styled.footer`
   padding: 24px ${LayoutPadding.Desktop} 24px;
 
   background-color: ${({ theme }) => theme.globals.bgColor.header};
+  border-top: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`}
 `;

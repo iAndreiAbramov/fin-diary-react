@@ -1,11 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
 const MainColor = {
-  Dark: '#3a3937',
-  SemiDark: '#5b5957',
-  Medium: '#93918d',
-  SemiLight: '#ccc7bc',
-  Light: '#f8f1db',
+  Dark: '#282828',
+  SemiDark: '#646363',
+  Medium: '#8a8a8a',
+  SemiLight: '#ababab',
+  Light: '#dadada',
 };
 
 const AlterColor = {
@@ -40,14 +40,14 @@ export const lightTheme: DefaultTheme = {
         fontColor: {
           default: MainColor.Dark,
           disabled: MainColor.SemiLight,
-          active: MainColor.SemiDark,
-          hoverFocus: MainColor.SemiDark,
+          active: MainColor.Dark,
+          hoverFocus: MainColor.Dark,
         },
         bgColor: {
-          default: AccentColor.Light,
+          default: AccentColor.Medium,
           active: AccentColor.SemiLight,
           hoverFocus: AccentColor.SemiLight,
-          disabled: AccentColor.Medium,
+          disabled: AccentColor.Light,
         },
       },
       alter: {
@@ -58,32 +58,32 @@ export const lightTheme: DefaultTheme = {
           hoverFocus: MainColor.Dark,
         },
         bgColor: {
-          default: AlterColor.Light,
-          active: AlterColor.SemiLight,
-          hoverFocus: AlterColor.SemiLight,
-          disabled: AlterColor.Medium,
+          default: AlterColor.SemiLight,
+          active: AlterColor.Medium,
+          hoverFocus: AlterColor.Medium,
+          disabled: AlterColor.Light,
         },
       },
       outlined: {
         fontColor: {
-          default: AccentColor.Medium,
-          hoverFocus: AccentColor.Dark,
-          active: AccentColor.Dark,
-          disabled: AccentColor.Light,
+          default: AccentColor.Dark,
+          hoverFocus: AccentColor.SemiDark,
+          active: AccentColor.SemiDark,
+          disabled: AccentColor.SemiLight,
         },
         borderColor: {
-          default: AccentColor.Medium,
-          hoverFocus: AccentColor.Dark,
-          active: AccentColor.Dark,
-          disabled: AccentColor.Light,
+          default: AccentColor.Dark,
+          hoverFocus: AccentColor.Medium,
+          active: AccentColor.Medium,
+          disabled: AccentColor.SemiLight,
         },
       },
       borderless: {
         fontColor: {
           default: AccentColor.Dark,
-          hoverFocus: AccentColor.Medium,
-          active: AccentColor.Medium,
-          disabled: AccentColor.Light,
+          hoverFocus: AccentColor.SemiDark,
+          active: AccentColor.SemiDark,
+          disabled: AccentColor.SemiLight,
         },
       },
     },
@@ -96,33 +96,33 @@ export const lightTheme: DefaultTheme = {
       bgColor: {
         default: MainColor.Light,
         focusedActive: MainColor.Light,
-        disabled: MainColor.Medium,
+        disabled: MainColor.SemiLight,
       },
       borderColor: {
         default: AccentColor.Medium,
-        focusedActive: AccentColor.Light,
+        focusedActive: AccentColor.SemiDark,
         disabled: MainColor.SemiLight,
         invalid: AlertColor.SemiLight,
       },
     },
     mainMenuItem: {
       fontColor: {
-        default: AccentColor.Light,
-        active: AccentColor.Medium,
-        hoverFocus: AccentColor.Medium,
+        default: AccentColor.Dark,
+        active: AccentColor.SemiDark,
+        hoverFocus: AccentColor.SemiDark,
       },
       bgColor: {
         default: 'none',
-        hoverFocus: MainColor.SemiDark,
-        active: MainColor.SemiDark,
+        hoverFocus: MainColor.SemiLight,
+        active: MainColor.SemiLight,
       },
     },
   },
   globals: {
     bgColor: {
       default: MainColor.Light,
-      header: MainColor.Dark,
-      footer: MainColor.Dark,
+      header: MainColor.Light,
+      footer: MainColor.Light,
     },
     fontColor: {
       default: AccentColor.Dark,

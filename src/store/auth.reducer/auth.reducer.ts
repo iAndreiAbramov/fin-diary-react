@@ -12,7 +12,7 @@ export interface IAccountState {
 
 const initialState: IAccountState = {
   loginFetchStatus: FetchStatus.Initial,
-  userData: null,
+  userData: { email: 'fake@fake.com', id: '2' },
   loginError: null,
 };
 
