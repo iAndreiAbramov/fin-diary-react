@@ -15,7 +15,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
   return (
     <Form onSubmit={onSubmit} validate={type === 'register' ? validate : undefined}>
       {({ handleSubmit, submitFailed, hasValidationErrors }) => (
-        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed} autoComplete="off">
+        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed}>
           <Field name="email" validate={composeValidators([isRequired, isValidEmail])}>
             {({ input, meta }) => (
               <S.FieldWrapper as="div">

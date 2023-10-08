@@ -11,6 +11,8 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, lightTheme } from 'styles';
 
 import Layout from 'components/containers/Layout';
+import PrivateRoute from 'components/containers/PrivateRoute';
+import PublicRoute from 'components/containers/PublicRoute';
 import { GetRoute } from 'utils/routes/get-route';
 
 const App: React.FC = () => {
@@ -20,9 +22,30 @@ const App: React.FC = () => {
         <GlobalStyles />
         <Routes>
           <Route path={GetRoute.Home()} element={<PageHome />} />
-          <Route path={GetRoute.Login()} element={<PageLogin />} />
-          <Route path={GetRoute.Registration()} element={<PageRegistration />} />
-          <Route path={GetRoute.Dashboard()} element={<Layout />}>
+          <Route
+            path={GetRoute.Login()}
+            element={
+              <PublicRoute>
+                <PageLogin />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path={GetRoute.Registration()}
+            element={
+              <PublicRoute>
+                <PageRegistration />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path={GetRoute.Dashboard()}
+            element={
+              <PrivateRoute>
+                <Layout />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<PageDashboard />} />
             <Route path={GetRoute.Cabinet()} element={<PageCabinet />} />
           </Route>
