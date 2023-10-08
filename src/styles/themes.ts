@@ -107,9 +107,9 @@ export const lightTheme: DefaultTheme = {
     },
     mainMenuItem: {
       fontColor: {
-        default: AccentColor.Dark,
-        active: AccentColor.SemiDark,
-        hoverFocus: AccentColor.SemiDark,
+        default: MainColor.Dark,
+        active: MainColor.SemiDark,
+        hoverFocus: MainColor.SemiDark,
       },
       bgColor: {
         default: 'none',

@@ -19,7 +19,13 @@ const initialState: IAccountState = {
 const accountSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logoutAction: (state) => {
+      state.loginFetchStatus = FetchStatus.Initial;
+      state.userData = null;
+      state.loginError = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginThunkAction.pending, (state) => {
@@ -42,4 +48,5 @@ const accountSlice = createSlice({
   },
 });
 
+export const { logoutAction } = accountSlice.actions;
 export const accountReducer = accountSlice.reducer;

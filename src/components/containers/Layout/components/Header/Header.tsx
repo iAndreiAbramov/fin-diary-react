@@ -7,7 +7,11 @@ import { IHeaderProps } from './Header.types';
 
 import * as S from './Header.styled';
 
-const Header: React.FC<IHeaderProps> = ({ handleMainMenuButtonClick, isMainMenuActive }) => {
+const Header: React.FC<IHeaderProps> = ({
+  handleMainMenuButtonClick,
+  isMainMenuActive,
+  handleLogout,
+}) => {
   return (
     <S.Wrapper>
       <S.MenuButton
@@ -16,7 +20,7 @@ const Header: React.FC<IHeaderProps> = ({ handleMainMenuButtonClick, isMainMenuA
         title="Меню"
         onClick={handleMainMenuButtonClick}
       />
-      <S.LogoutButton displayType="borderless" icon={<Logout />} />
+      <S.LogoutButton displayType="borderless" icon={<Logout />} onClick={handleLogout} />
     </S.Wrapper>
   );
 };
