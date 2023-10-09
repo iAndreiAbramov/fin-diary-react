@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import PageCabinet from 'pages/Cabinet';
 import PageDashboard from 'pages/Dashboard';
 import PageHome from 'pages/Home';
 import PageLogin from 'pages/Login';
 import PageRegistration from 'pages/Registration';
-import { checkUserThunkAction } from 'store/auth.reducer';
-import { useAppDispatch } from 'store/store';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, lightTheme } from 'styles';
 
@@ -16,13 +14,6 @@ import PublicRoute from 'components/containers/PublicRoute';
 import { GetRoute } from 'utils/routes/get-route';
 
 const App: React.FC = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const timeout = setTimeout(() => void dispatch(checkUserThunkAction()), 0);
-    return () => clearTimeout(timeout);
-  }, [dispatch]);
-
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />

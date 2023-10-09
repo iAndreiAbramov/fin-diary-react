@@ -1,12 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectIsLoggedIn } from 'store/auth.reducer/auth.selectors';
+import { selectIsLoggedIn, selectLoginFetchStatus } from 'store/auth.reducer/auth.selectors';
+import { FetchStatus } from 'types/fetch-status.enum';
 
 import { GetRoute } from 'utils/routes/get-route';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const loginStatus = useSelector(selectLoginFetchStatus);
+
+  if (loginStatus === FetchStatus.Progress) {
+    return <div></div>;
+  }
 
   return !isLoggedIn ? <Navigate to={GetRoute.Login()} /> : <>{children}</>;
 };
