@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import PageCabinet from 'pages/Cabinet';
 import PageDashboard from 'pages/Dashboard';
@@ -7,7 +6,7 @@ import PageHome from 'pages/Home';
 import PageLogin from 'pages/Login';
 import PageRegistration from 'pages/Registration';
 import { checkUserThunkAction } from 'store/auth.reducer';
-import { store, useAppDispatch } from 'store/store';
+import { useAppDispatch } from 'store/store';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, lightTheme } from 'styles';
 
@@ -20,7 +19,8 @@ const App: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    void dispatch(checkUserThunkAction());
+    const timeout = setTimeout(() => void dispatch(checkUserThunkAction()), 0);
+    return () => clearTimeout(timeout);
   }, [dispatch]);
 
   return (
