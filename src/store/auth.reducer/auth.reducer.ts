@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ILoginResponse } from 'store/backend-api/types';
 import { FetchStatus } from 'types/fetch-status.enum';
 
-import { loginThunkAction } from './auth.thunk-actions';
+import { checkUserThunkAction, loginThunkAction } from './auth.thunk-actions';
 
 export interface IAccountState {
   loginFetchStatus: FetchStatus;
@@ -12,7 +12,7 @@ export interface IAccountState {
 
 const initialState: IAccountState = {
   loginFetchStatus: FetchStatus.Initial,
-  userData: { email: 'fake@fake.com', id: '2' },
+  userData: null,
   loginError: null,
 };
 
@@ -34,11 +34,24 @@ const accountSlice = createSlice({
       })
       .addCase(loginThunkAction.fulfilled, (state, { payload }) => {
         state.loginFetchStatus = FetchStatus.Success;
-        if (payload) {
-          state.userData = payload;
-        }
+        state.userData = payload;
       })
       .addCase(loginThunkAction.rejected, (state, { error }) => {
+        state.loginFetchStatus = FetchStatus.Error;
+        state.userData = null;
+        if (error.message) {
+          state.loginError = error.message;
+        }
+      })
+      .addCase(checkUserThunkAction.pending, (state) => {
+        state.loginFetchStatus = FetchStatus.Progress;
+        state.loginError = null;
+      })
+      .addCase(checkUserThunkAction.fulfilled, (state, { payload }) => {
+        state.loginFetchStatus = FetchStatus.Success;
+        state.userData = payload;
+      })
+      .addCase(checkUserThunkAction.rejected, (state, { error }) => {
         state.loginFetchStatus = FetchStatus.Error;
         state.userData = null;
         if (error.message) {

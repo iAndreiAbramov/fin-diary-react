@@ -4,6 +4,7 @@ import { useCloseByClick } from 'hooks/useCloseByClick';
 import { useCloseByEsc } from 'hooks/useCloseByEsc';
 import { useScrollToTop } from 'hooks/useScrollToTop';
 import { logoutAction } from 'store/auth.reducer';
+import { deleteToken } from 'store/backend-api/utils';
 import { useAppDispatch } from 'store/store';
 
 import Footer from './components/Footer';
@@ -19,7 +20,10 @@ const Layout: React.FC = () => {
 
   const closeMainMenu = () => setIsMainMenuActive(false);
   const handleMainMenuClick = () => setIsMainMenuActive((current) => !current);
-  const handleLogout = () => dispatch(logoutAction());
+  const handleLogout = () => {
+    deleteToken();
+    dispatch(logoutAction());
+  };
 
   useScrollToTop(pathname);
   useCloseByClick({ isShown: isMainMenuActive, cb: closeMainMenu });

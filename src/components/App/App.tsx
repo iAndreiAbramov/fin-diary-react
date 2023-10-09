@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import PageCabinet from 'pages/Cabinet';
@@ -6,7 +6,8 @@ import PageDashboard from 'pages/Dashboard';
 import PageHome from 'pages/Home';
 import PageLogin from 'pages/Login';
 import PageRegistration from 'pages/Registration';
-import { store } from 'store/store';
+import { checkUserThunkAction } from 'store/auth.reducer';
+import { store, useAppDispatch } from 'store/store';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, lightTheme } from 'styles';
 
@@ -16,42 +17,46 @@ import PublicRoute from 'components/containers/PublicRoute';
 import { GetRoute } from 'utils/routes/get-route';
 
 const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    void dispatch(checkUserThunkAction());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={lightTheme}>
-        <GlobalStyles />
-        <Routes>
-          <Route path={GetRoute.Home()} element={<PageHome />} />
-          <Route
-            path={GetRoute.Login()}
-            element={
-              <PublicRoute>
-                <PageLogin />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path={GetRoute.Registration()}
-            element={
-              <PublicRoute>
-                <PageRegistration />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path={GetRoute.Dashboard()}
-            element={
-              <PrivateRoute>
-                <Layout />
-              </PrivateRoute>
-            }
-          >
-            <Route index element={<PageDashboard />} />
-            <Route path={GetRoute.Cabinet()} element={<PageCabinet />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyles />
+      <Routes>
+        <Route path={GetRoute.Home()} element={<PageHome />} />
+        <Route
+          path={GetRoute.Login()}
+          element={
+            <PublicRoute>
+              <PageLogin />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path={GetRoute.Registration()}
+          element={
+            <PublicRoute>
+              <PageRegistration />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path={GetRoute.Dashboard()}
+          element={
+            <PrivateRoute>
+              <Layout />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<PageDashboard />} />
+          <Route path={GetRoute.Cabinet()} element={<PageCabinet />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };
 
