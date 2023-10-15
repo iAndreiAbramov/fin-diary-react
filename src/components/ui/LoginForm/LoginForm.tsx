@@ -11,11 +11,11 @@ import { validate } from './LoginForm.utils';
 
 import * as S from './LoginForm.styled';
 
-const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) => {
+const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, isSubmitting }) => {
   return (
     <Form onSubmit={onSubmit} validate={type === 'register' ? validate : undefined}>
       {({ handleSubmit, submitFailed, hasValidationErrors }) => (
-        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed} autoComplete="off">
+        <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed}>
           <Field name="email" validate={composeValidators([isRequired, isValidEmail])}>
             {({ input, meta }) => (
               <S.FieldWrapper as="div">
@@ -64,7 +64,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError }) 
             type="submit"
             displayType="primary"
             text={type === 'register' ? 'Зарегистрироваться' : 'Войти'}
-            disabled={submitFailed && hasValidationErrors}
+            disabled={(submitFailed && hasValidationErrors) || isSubmitting}
           />
           {backendError && (
             <S.ErrorContainer as="div" $hasError={!!backendError}>
