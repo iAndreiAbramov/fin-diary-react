@@ -16,17 +16,15 @@ const MainMenuItem: React.FC<IMainMenuItemProps> = ({
   const isActive = useMemo(() => pathname === linkTo, [pathname, linkTo]);
 
   return (
-    <li>
-      <S.ListItem
-        key={name}
-        linkTo={linkTo}
-        handleClick={handleMenuItemClick}
-        name={name}
-        isOuterLink={isOuterLink}
-        icon={icon}
-        $isActive={isActive}
-      />
-    </li>
+    <S.MainMenuLink
+      key={name}
+      linkTo={linkTo}
+      handleClick={handleMenuItemClick}
+      name={name}
+      isOuterLink={isOuterLink}
+      icon={icon}
+      $isActive={isActive}
+    />
   );
 };
 

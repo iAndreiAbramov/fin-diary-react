@@ -3,7 +3,7 @@ import { TransitionTime } from 'styles/variables/sizes';
 
 import LinkItem from 'components/ui/LinkItem';
 
-export const ListItem = styled(LinkItem)<{
+export const MainMenuLink = styled(LinkItem)<{
   $isActive: boolean;
 }>`
   display: flex;

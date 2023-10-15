@@ -1,7 +1,7 @@
 import React from 'react';
 
-import MainMenuItem from './components/MainMenuItem';
-import { mainMenuItems } from './MainMenu.constants';
+import MainMenuSection from './components/MainMenuSection';
+import { mainMenuSections } from './MainMenu.constants';
 import { IMainMenuProps } from './MainMenu.types';
 
 import * as S from './MainMenu.styled';
@@ -9,12 +9,12 @@ import * as S from './MainMenu.styled';
 const MainMenu: React.FC<IMainMenuProps> = ({ handleMenuItemClick }) => {
   return (
     <S.MenuList>
-      {mainMenuItems.map(({ name, linkTo, icon }) => (
-        <MainMenuItem
-          key={name}
-          name={name}
-          linkTo={linkTo}
+      {mainMenuSections.map(({ title, icon, items }) => (
+        <MainMenuSection
+          key={title}
+          title={title}
           icon={icon}
+          items={items}
           handleMenuItemClick={handleMenuItemClick}
         />
       ))}
