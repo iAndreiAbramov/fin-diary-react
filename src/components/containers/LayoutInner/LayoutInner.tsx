@@ -11,9 +11,9 @@ import Footer from './components/Footer';
 import HeaderContent from './components/Header';
 import MainMenu from './components/MainMenu';
 
-import * as S from './Layout.styled';
+import * as S from './LayoutInner.styled';
 
-const Layout: React.FC = () => {
+const LayoutInner: React.FC = () => {
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const [isMainMenuActive, setIsMainMenuActive] = useState(false);
@@ -53,4 +53,4 @@ const Layout: React.FC = () => {
   );
 };
 
-export default Layout;
+export default LayoutInner;

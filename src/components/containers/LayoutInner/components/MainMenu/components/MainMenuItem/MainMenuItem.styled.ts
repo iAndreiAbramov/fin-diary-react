@@ -13,7 +13,7 @@ export const MainMenuLink = styled(LinkItem)<{
   padding: 8px 16px;
   border-radius: 6px;
   background-color: ${({ $isActive, theme }) =>
-          $isActive ? theme.components.mainMenuItem.bgColor.active : 'transparent'};
+    $isActive ? theme.components.mainMenuItem.bgColor.active : 'transparent'};
 
   text-decoration: none;
   color: ${({ theme }) => theme.components.mainMenuItem.fontColor.default};
@@ -30,7 +30,8 @@ export const MainMenuLink = styled(LinkItem)<{
     }
   }
 
-  li > &:active, li > &:focus {
+  li > &:active,
+  li > &:focus {
     border: none;
     outline: none;
   }

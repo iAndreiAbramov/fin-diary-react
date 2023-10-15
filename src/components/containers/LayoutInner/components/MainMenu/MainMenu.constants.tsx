@@ -5,32 +5,16 @@ import { GetRoute } from 'utils/routes/get-route';
 
 import { IMainMenuItem, IMainMenuSection } from './MainMenu.types';
 
-export const mainMenuItems: IMainMenuItem[] = [
-  {
-    name: 'Финансы',
-    linkTo: GetRoute.Dashboard(),
-    icon: <Finance />,
-    isOuterLink: false,
-    isPrivate: false,
-  },
-  {
-    name: 'Кабинет',
-    linkTo: GetRoute.Cabinet(),
-    icon: <User />,
-    isOuterLink: false,
-    isPrivate: false,
-  },
-];
-
 export const financeItems: IMainMenuItem[] = [
-  { name: 'Расходы', linkTo: GetRoute.Dashboard() },
-  { name: 'Доходы', linkTo: GetRoute.Dashboard() },
+  { name: 'Сводка', linkTo: GetRoute.Summary() },
+  { name: 'Доходы', linkTo: GetRoute.Income() },
+  { name: 'Расходы', linkTo: GetRoute.Spending() },
 ];
 
 export const cabinetItems: IMainMenuItem[] = [
   {
     name: 'Смена пароля',
-    linkTo: GetRoute.Cabinet(),
+    linkTo: GetRoute.ChangePassword(),
   },
 ];
 

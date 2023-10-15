@@ -28,4 +28,4 @@ export const MenuButton = styled(Button)`
 
 export const LogoutButton = styled(Button)`
   margin-left: auto;
-`
+`;

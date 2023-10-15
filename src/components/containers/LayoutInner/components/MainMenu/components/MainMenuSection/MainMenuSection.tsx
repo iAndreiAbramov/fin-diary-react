@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MainMenuItem from 'components/containers/Layout/components/MainMenu/components/MainMenuItem';
+import MainMenuItem from 'components/containers/LayoutInner/components/MainMenu/components/MainMenuItem';
 
 import { IMainMenuSectionProps } from './MainMenuSection.types';
 

@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.header`
   padding: 16px ${LayoutPadding.Desktop};
 
   background-color: ${({ theme }) => theme.globals.bgColor.header};
-  border-bottom: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`}
+  border-bottom: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`};
 `;
 
 export const DashboardWrapper = styled.div`
@@ -67,5 +67,5 @@ export const FooterWrapper = styled.footer`
   padding: 24px ${LayoutPadding.Desktop} 24px;
 
   background-color: ${({ theme }) => theme.globals.bgColor.header};
-  border-top: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`}
+  border-top: ${({ theme }) => `1px solid ${theme.globals.fontColor.default}`};
 `;

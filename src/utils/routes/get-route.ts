@@ -1,7 +1,10 @@
 export const GetRoute = {
-  Home: (): string => '/',
+  ChangePassword: (): string => '/dashboard/change-password',
   Dashboard: (): string => '/dashboard',
-  Cabinet: (): string => '/dashboard/cabinet',
+  Home: (): string => '/',
+  Income: (): string => '/dashboard/income',
   Login: (): string => '/login',
   Registration: (): string => '/registration',
+  Spending: (): string => '/dashboard/spending',
+  Summary: (): string => '/dashboard/summary',
 } as const;
