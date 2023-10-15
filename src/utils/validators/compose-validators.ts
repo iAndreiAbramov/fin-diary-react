@@ -1,4 +1,4 @@
-import { TValidatorResponse } from './types/validators.types';
+import { TValidatorResponse } from './types/validator-response.types';
 
 type TValidatorFn = (value: string) => TValidatorResponse;
 

@@ -7,7 +7,7 @@ import { IInputProps } from './FormInput.types';
 import * as S from './FormInput.styled';
 
 const FormInput = forwardRef<HTMLInputElement | null, IInputProps>(
-  ({ isValid = true, className, type, labelText, ...props }, ref) => {
+  ({ isInvalid = false, className, type, labelText, ...props }, ref) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const handleChangeVisibility = useCallback(() => {
@@ -23,7 +23,7 @@ const FormInput = forwardRef<HTMLInputElement | null, IInputProps>(
               as="input"
               {...props}
               type={type}
-              $isValid={isValid}
+              $isValid={!isInvalid}
               $hasIcon={false}
               ref={ref}
             />
@@ -37,7 +37,7 @@ const FormInput = forwardRef<HTMLInputElement | null, IInputProps>(
               as="input"
               {...props}
               type={isPasswordVisible ? 'text' : 'password'}
-              $isValid={isValid}
+              $isValid={!isInvalid}
               $hasIcon
               ref={ref}
             />

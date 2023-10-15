@@ -28,7 +28,7 @@ export const Invalid: Story = {
   args: {
     type: 'text',
     placeholder: 'Invalid',
-    isValid: false,
+    isInvalid: true,
   },
 };
 

@@ -1,14 +1,15 @@
 import { ValidationErrorMessage } from 'constants/messages/validation-error.message';
-import { ILoginFormValues } from 'types/common/login-form-values.interface';
 
-import { TLoginFormErrors } from './LoginForm.types';
+import {
+  IComparePasswordsValues,
+  TComparePasswordsErrors,
+} from './types/compare-passwords.interface';
 
-export const validate = ({
+export const comparePasswords = ({
   password,
   passwordConfirmation,
-}: ILoginFormValues): TLoginFormErrors => {
-  const errors: TLoginFormErrors = {
-    email: undefined,
+}: IComparePasswordsValues): TComparePasswordsErrors => {
+  const errors: TComparePasswordsErrors = {
     password: undefined,
     passwordConfirmation: undefined,
   };

@@ -4,6 +4,6 @@ export interface IInputProps
   extends Partial<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> {
   type: 'text' | 'password';
   labelText?: string;
-  isValid?: boolean;
+  isInvalid?: boolean;
   classname?: string;
 }
