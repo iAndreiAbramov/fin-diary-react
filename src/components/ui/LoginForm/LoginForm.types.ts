@@ -1,3 +1,5 @@
+import { ILoginFormValues } from 'types/common/login-form-values.interface';
+
 type TLoginFormType = 'login' | 'register';
 
 export interface ILoginFormProps {
@@ -7,12 +9,6 @@ export interface ILoginFormProps {
   isSubmitting?: boolean;
   isSuccess?: boolean;
   isError?: boolean;
-}
-
-export interface ILoginFormValues {
-  email: string;
-  password: string;
-  passwordConfirmation?: string;
 }
 
 export type TLoginFormErrors = Partial<ILoginFormValues>;

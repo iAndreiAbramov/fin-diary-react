@@ -6,11 +6,11 @@ import {
   selectLoginFetchStatus,
 } from 'store/auth.reducer';
 import { useAppDispatch } from 'store/store';
-import { FetchStatus } from 'types/fetch-status.enum';
+import { FetchStatus } from 'types/common/fetch-status.enum';
+import { ILoginFormValues } from 'types/common/login-form-values.interface';
 
 import { LoginLayout } from 'components/atoms/LoginLayout';
 import LoginForm from 'components/ui/LoginForm';
-import { ILoginFormValues } from 'components/ui/LoginForm/LoginForm.types';
 
 const PageLogin: React.FC = () => {
   const dispatch = useAppDispatch();

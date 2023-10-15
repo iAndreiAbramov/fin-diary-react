@@ -1,7 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ILoginRequestBody, ILoginResponse } from 'store/backend-api/types';
+import {
+  ILoginRequestBody,
+  ILoginResponse,
+  IRegistrationRequestBody,
+} from 'store/backend-api/types';
 
-import { checkUser, requestLogin } from './services/auth.service';
+import { checkUser, requestLogin, requestRegistration } from './services/auth.service';
+
+export const registerThunkAction = createAsyncThunk(
+  'auth/register',
+  async (body: IRegistrationRequestBody): Promise<ILoginResponse> => {
+    return await requestRegistration(body);
+  },
+);
 
 export const loginThunkAction = createAsyncThunk(
   'auth/login',

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn, selectLoginFetchStatus } from 'store/auth.reducer/auth.selectors';
-import { FetchStatus } from 'types/fetch-status.enum';
+import { FetchStatus } from 'types/common/fetch-status.enum';
 
 import { GetRoute } from 'utils/routes/get-route';
 

@@ -1,4 +1,5 @@
 export const GetEndpoint = {
-  Login: (): string => 'users/login',
   Check: (): string => 'users/check',
+  Login: (): string => 'users/login',
+  Register: (): string => 'users/register',
 };

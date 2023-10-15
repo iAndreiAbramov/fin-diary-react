@@ -1,6 +1,7 @@
 import { ValidationErrorMessage } from 'constants/messages/validation-error.message';
+import { ILoginFormValues } from 'types/common/login-form-values.interface';
 
-import { ILoginFormValues, TLoginFormErrors } from './LoginForm.types';
+import { TLoginFormErrors } from './LoginForm.types';
 
 export const validate = ({
   password,
