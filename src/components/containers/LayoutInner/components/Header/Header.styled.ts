@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const MenuButton = styled(Button)`
   width: 40px;
   height: 40px;
+  margin-left: -8px;
 
   & svg path {
     width: 32px;

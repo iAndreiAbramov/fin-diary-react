@@ -4,6 +4,7 @@ import PageChangePassword from 'pages/ChangePassword';
 import PageHome from 'pages/Home';
 import PageIncome from 'pages/Income';
 import PageLogin from 'pages/Login';
+import PageNotFound from 'pages/NotFound';
 import PageRegistration from 'pages/Registration';
 import PageSpending from 'pages/Spending';
 import PageSummary from 'pages/Summary';
@@ -51,6 +52,7 @@ const App: React.FC = () => {
           <Route path={GetRoute.Income()} element={<PageIncome />} />
           <Route path={GetRoute.ChangePassword()} element={<PageChangePassword />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </ThemeProvider>
   );

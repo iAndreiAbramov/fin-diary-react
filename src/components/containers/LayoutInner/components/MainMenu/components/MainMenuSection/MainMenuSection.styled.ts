@@ -22,5 +22,5 @@ export const ItemsWrapper = styled.div`
   flex-direction: column;
   gap: 6px;
 
-  padding: 4px 0 4px 24px;
+  padding: 6px 0 4px 24px;
 `;
