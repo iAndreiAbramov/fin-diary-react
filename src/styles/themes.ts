@@ -38,15 +38,15 @@ export const lightTheme: DefaultTheme = {
     button: {
       primary: {
         fontColor: {
-          default: MainColor.Dark,
+          default: MainColor.Light,
           disabled: MainColor.SemiLight,
           active: MainColor.Dark,
           hoverFocus: MainColor.Dark,
         },
         bgColor: {
-          default: AccentColor.Medium,
-          active: AccentColor.SemiLight,
-          hoverFocus: AccentColor.SemiLight,
+          default: AccentColor.Dark,
+          active: AccentColor.SemiDark,
+          hoverFocus: AccentColor.SemiDark,
           disabled: AccentColor.Light,
         },
       },
@@ -99,8 +99,8 @@ export const lightTheme: DefaultTheme = {
         disabled: MainColor.SemiLight,
       },
       borderColor: {
-        default: AccentColor.Medium,
-        focusedActive: AccentColor.SemiDark,
+        default: AccentColor.Dark,
+        focusedActive: AccentColor.Medium,
         disabled: MainColor.SemiLight,
         invalid: AlertColor.SemiLight,
       },
