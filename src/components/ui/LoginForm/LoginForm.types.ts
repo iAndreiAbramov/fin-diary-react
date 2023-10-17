@@ -1,4 +1,4 @@
-import { ILoginFormValues } from 'types/common/login-form-values.interface';
+import { ILoginFormValues } from 'types/forms/login-form-values.interface';
 
 type TLoginFormType = 'login' | 'register';
 

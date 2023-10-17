@@ -1,6 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { backendApi } from 'store/backend-api';
 import {
+  IChangePasswordRequestBody,
   ILoginRequestBody,
   ILoginResponse,
   IRegistrationRequestBody,
@@ -16,6 +17,14 @@ export const requestRegistration = async (
       body,
     )
     .then((res) => res.data)
+    .catch((error: AxiosError<{ message: string }>) => {
+      throw new Error(error?.response?.data?.message || '');
+    });
+
+export const requestChangePassword = async (body: IChangePasswordRequestBody): Promise<void> =>
+  backendApi
+    .patch(GetEndpoint.ChangePassword(), body)
+    .then((res) => res?.data)
     .catch((error: AxiosError<{ message: string }>) => {
       throw new Error(error?.response?.data?.message || '');
     });

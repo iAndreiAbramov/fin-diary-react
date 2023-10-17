@@ -1,7 +1,7 @@
-import { ILoginFormValues } from 'types/common/login-form-values.interface';
+import { IChangePasswordFormValues } from 'types/forms/change-password-form-values.interface';
 
 export interface IChangePasswordFormProps {
-  onSubmit: (values: ILoginFormValues) => void;
+  onSubmit: (values: IChangePasswordFormValues) => void;
   backendError?: string | null;
   isSubmitting?: boolean;
   isSuccess?: boolean;

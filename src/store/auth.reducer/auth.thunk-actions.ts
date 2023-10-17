@@ -1,16 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
+  IChangePasswordRequestBody,
   ILoginRequestBody,
   ILoginResponse,
   IRegistrationRequestBody,
 } from 'store/backend-api/types';
 
-import { checkUser, requestLogin, requestRegistration } from './services/auth.service';
+import {
+  checkUser,
+  requestChangePassword,
+  requestLogin,
+  requestRegistration,
+} from './services/auth.service';
 
 export const registerThunkAction = createAsyncThunk(
   'auth/register',
   async (body: IRegistrationRequestBody): Promise<ILoginResponse> => {
     return await requestRegistration(body);
+  },
+);
+
+export const changePasswordThunkAction = createAsyncThunk(
+  'auth/changePassword',
+  async (body: IChangePasswordRequestBody): Promise<void> => {
+    return await requestChangePassword(body);
   },
 );
 
