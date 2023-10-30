@@ -8,3 +8,9 @@ export interface IRegistrationRequestBody {
   password: string;
   passwordConfirmation: string;
 }
+
+export interface IChangePasswordRequestBody {
+  oldPassword: string;
+  newPassword: string;
+  id: string;
+}

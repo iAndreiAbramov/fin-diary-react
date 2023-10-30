@@ -1,19 +1,21 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
+import { MIN_PASSWORD_LENGTH } from 'constants/forms/forms.constants';
 
+import { ErrorText } from 'components/atoms/ErrorText';
+import FormErrorElement from 'components/ui/FormErrorElement';
+import FormInput from 'components/ui/FormInput';
 import { GetRoute } from 'utils/routes/get-route';
 import { composeValidators, isNotTooShort, isRequired, isValidEmail } from 'utils/validators';
+import { comparePasswords } from 'utils/validators/compare-passwords';
 
-import FormInput from './FormInput';
-import { MIN_PASSWORD_LENGTH } from './LoginForm.constants';
 import { ILoginFormProps } from './LoginForm.types';
-import { validate } from './LoginForm.utils';
 
 import * as S from './LoginForm.styled';
 
 const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, isSubmitting }) => {
   return (
-    <Form onSubmit={onSubmit} validate={type === 'register' ? validate : undefined}>
+    <Form onSubmit={onSubmit} validate={type === 'register' ? comparePasswords : undefined}>
       {({ handleSubmit, submitFailed, hasValidationErrors }) => (
         <S.Form as="form" onSubmit={handleSubmit} $isFailed={submitFailed}>
           <Field name="email" validate={composeValidators([isRequired, isValidEmail])}>
@@ -23,9 +25,9 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, is
                   {...input}
                   type="text"
                   labelText="Электронная почта"
-                  isValid={!meta.error || !submitFailed}
+                  isInvalid={meta.error && submitFailed}
                 />
-                {meta.error && submitFailed && <S.ErrorText>{meta.error}</S.ErrorText>}
+                {meta.error && submitFailed && <ErrorText>{meta.error}</ErrorText>}
               </S.FieldWrapper>
             )}
           </Field>
@@ -39,9 +41,9 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, is
                   {...input}
                   type="password"
                   labelText="Пароль"
-                  isValid={!meta.error || !submitFailed}
+                  isInvalid={meta.error && submitFailed}
                 />
-                {meta.error && submitFailed && <S.ErrorText as="span">{meta.error}</S.ErrorText>}
+                {meta.error && submitFailed && <ErrorText as="span">{meta.error}</ErrorText>}
               </S.FieldWrapper>
             )}
           </Field>
@@ -53,9 +55,9 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, is
                     {...input}
                     type="password"
                     labelText="Повторите пароль"
-                    isValid={!meta.error || !submitFailed}
+                    isInvalid={meta.error && submitFailed}
                   />
-                  {meta.error && submitFailed && <S.ErrorText as="span">{meta.error}</S.ErrorText>}
+                  {meta.error && submitFailed && <ErrorText as="span">{meta.error}</ErrorText>}
                 </S.FieldWrapper>
               )}
             </Field>
@@ -66,11 +68,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({ type, onSubmit, backendError, is
             text={type === 'register' ? 'Зарегистрироваться' : 'Войти'}
             disabled={(submitFailed && hasValidationErrors) || isSubmitting}
           />
-          {backendError && (
-            <S.ErrorContainer as="div" $hasError={!!backendError}>
-              <S.ErrorText as="span">{backendError}</S.ErrorText>
-            </S.ErrorContainer>
-          )}
+          {backendError && <FormErrorElement errorText={backendError} />}
           <S.AlterLink
             linkTo={type === 'login' ? GetRoute.Registration() : GetRoute.Login()}
             name={type === 'login' ? 'Зарегистрироваться' : 'Войти'}
